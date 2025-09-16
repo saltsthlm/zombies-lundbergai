@@ -88,4 +88,9 @@ test("second zombie consumes first zombie when added to a one-roomer", () => {
   ok(room.zombies[0].name == secondZombieName);
 });
 
-// You are free to add more tests that you think are relevant!
+test("negative capacity behaves as empty room", () => {
+  const room: IRoom = createRoom(-1);
+
+  ok(!addZombie(room, "Viktor"));
+  ok(isRoomFull(room));
+});
