@@ -27,7 +27,11 @@ test("room is full", () => {
   ok(isRoomFull(room));
 });
 
-test.skip("empty room that fits one zombie is not full", () => { });
+test("empty room that fits one zombie is not full", () => {
+  const room: IRoom = createRoom(1);
+
+  ok(!isRoomFull(room));
+});
 
 test.skip("room with no capacity cannot fit any zombies", () => { });
 
