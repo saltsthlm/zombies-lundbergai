@@ -7,7 +7,7 @@ export const createRoom = (capacity: number): IRoom => {
 	}
 };
 
-export const isRoomFull = (room: IRoom) => {
+export const isRoomFull = (room: IRoom): boolean => {
 	return room.capacity <= room.zombies.length;
 };
 
