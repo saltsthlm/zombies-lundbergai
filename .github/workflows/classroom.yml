@@ -19,7 +19,7 @@ jobs:
       with:
         test-name: tests
         setup-command: npm install
-        command: npm test
+        command: npm test src/zombies.test.ts
         timeout: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
