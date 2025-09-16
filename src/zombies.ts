@@ -12,12 +12,12 @@ export const isRoomFull = (room: IRoom): boolean => {
 };
 
 export const addZombie = (room: IRoom, name: string): boolean => {
-	const zombie: IZombie = { name: name };
-
 	// no capacity at all means nothing can be added
 	if (room.capacity <= 0) {
 		return false;
 	}
+
+	const zombie: IZombie = { name: name };
 
 	// capacity not reached
 	if (room.zombies.length < room.capacity) {
