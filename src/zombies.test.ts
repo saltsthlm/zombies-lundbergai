@@ -1,45 +1,7 @@
 import { ok } from "node:assert/strict";
 import { test } from "node:test";
-
-interface IRoom {
-  capacity: number;
-  zombies: IZombie[]
-};
-
-interface IZombie {
-  name: string;
-}
-
-const createRoom = (capacity: number): IRoom => {
-  return {
-    capacity: capacity,
-    zombies: []
-  }
-};
-
-const isRoomFull = (room: IRoom) => {
-  return room.capacity <= room.zombies.length;
-};
-
-const addZombie = (room: IRoom, name: string): boolean => {
-  const zombie: IZombie = { name: name };
-
-  // no capacity at all means nothing can be added
-  if (room.capacity <= 0) {
-    return false;
-  }
-
-  // capacity not reached
-  if (room.zombies.length < room.capacity) {
-    room.zombies.push(zombie);
-    return true;
-  } else {
-    // full room, remove first element and move down all elements one position
-    room.zombies.shift();
-    room.zombies.push(zombie);
-    return true;
-  }
-}
+import { IRoom } from "./interfaces";
+import { addZombie, createRoom, isRoomFull } from "./zombies";
 
 test("room is full", () => {
   const room: IRoom = createRoom(0);
