@@ -5,4 +5,4 @@ export interface IRoom {
 
 export interface IZombie {
 	name: string;
-}
+};
