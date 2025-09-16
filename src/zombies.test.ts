@@ -21,6 +21,17 @@ const isRoomFull = (room: IRoom) => {
   return room.capacity <= room.zombies.length;
 };
 
+const addZombie = (room: IRoom, name: string): boolean => {
+  const zombie: IZombie = { name: name };
+
+  if (room.zombies.length < room.capacity) {
+    room.zombies.push(zombie);
+    return true;
+  } else {
+    return false;
+  }
+}
+
 test("room is full", () => {
   const room: IRoom = createRoom(0);
 
