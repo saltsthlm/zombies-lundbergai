@@ -3,16 +3,22 @@ import { test } from "node:test";
 
 interface IRoom {
   capacity: number;
+  zombies: IZombie[]
 };
+
+interface IZombie {
+  name: string;
+}
 
 const createRoom = (capacity: number): IRoom => {
   return {
-    capacity: capacity
+    capacity: capacity,
+    zombies: []
   }
 };
 
 const isRoomFull = (room: IRoom) => {
-  return true;
+  return room.capacity <= room.zombies.length;
 };
 
 test("room is full", () => {
